@@ -1,3 +1,5 @@
+import CartWidget from "./CartWidget"
+
 function NavBar(){
     return (
         <header>
@@ -11,7 +13,9 @@ function NavBar(){
                     <li><a href="#">Novela Romanticas</a></li>
                     <li><a href="#">Fantasia </a></li> 
                     <li><a href="#">Politica </a></li> 
-                </ul>                   
+                    <a href="#"><CartWidget/> </a>
+                </ul>
+                                  
             </nav>
         </header>
     ) 

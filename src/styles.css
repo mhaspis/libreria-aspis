@@ -41,3 +41,11 @@ li a:hover {
     color: #FFFFFF;
     background-color: rgb(119, 117, 117);
   }
+
+.cart {
+    float: right;
+    width: 40px;
+    height: 40px;
+    padding-top: 5px;
+    padding-right: 25px;
+}
