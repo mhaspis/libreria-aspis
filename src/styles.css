@@ -49,3 +49,25 @@ li a:hover {
     padding-top: 5px;
     padding-right: 25px;
 }
+
+.unidades{
+    border: 1px solid;
+    width: fit-content;
+    display: flex;
+}
+
+
+.controlUnidades{
+    border: 0px;
+
+    flex-flow: row;
+    font-size: 24px;
+    padding: 10px;
+}
+
+.agregarCarrito{
+    width: 250px;
+    height: 30px;
+    margin-top: 10px;
+    
+}

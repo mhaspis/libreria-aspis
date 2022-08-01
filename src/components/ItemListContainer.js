@@ -1,19 +1,16 @@
-const ItemListContainer = () =>{
-    return(
-    <container>
-        <Greeting mostrarCatalogo={true} />
-    </container>
-    )
-}
+import ItemCount from "./ItemCount";
 
-const Greeting = (props) => {
+const ItemListContainer = (props) =>{
 
     const mostrarCatalogo = props.mostrarCatalogo;
+        if(mostrarCatalogo){
+        
+        return <container>      
+            <h2>Nuestro Nuevo Catalogo</h2>
+            <ItemCount stock={5} initial={1}/>
+            </container>
+        }
 
-    if(mostrarCatalogo){
-        return <h2>Nuestro Catalogo</h2>
-    }
-     
 }
 
 export default ItemListContainer

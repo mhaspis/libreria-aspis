@@ -5,11 +5,10 @@ function App(){
 
     return (
     <>
-        <NavBar/>
-        <ItemListContainer/>
-        <main>
-
-        </main>
+        
+        <NavBar/>       
+        <ItemListContainer mostrarCatalogo={true}/>
+   
     </>
     
     )
