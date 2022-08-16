@@ -1,13 +1,16 @@
-import ItemListContainer from "./components/ItemListContainer";
-import NavBar from "./components/NavBar"
+import { BrowserRouter } from "react-router-dom"
+import Header from "./components/Header";
+import Main from "./components/Main"
+
 
 function App(){
 
     return (
     <>
-        
-        <NavBar/>       
-        <ItemListContainer mostrarCatalogo={true}/>
+        <BrowserRouter>
+            <Header />
+            <Main />
+        </BrowserRouter>
    
     </>
     

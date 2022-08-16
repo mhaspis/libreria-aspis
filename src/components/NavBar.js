@@ -1,19 +1,21 @@
 import CartWidget from "./CartWidget"
+import {NavLink} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 function NavBar(){
     return (
         <header>
-            <h1 className="titulo">Libreria Mhaspis</h1>
+            <h1 className="titulo"><Link className="titulo" to="/">Libreria Mhaspis</Link></h1>
             <nav>
                 <ul>
-                    <li><a href="#">Home </a></li>
-                    <li><a href="#">Ciencia Ficcion </a></li> 
-                    <li><a href="#">Suspenso </a></li>
-                    <li><a href="#">Terror </a></li>
-                    <li><a href="#">Novela Romanticas</a></li>
-                    <li><a href="#">Fantasia </a></li> 
-                    <li><a href="#">Politica </a></li> 
-                    <a href="#"><CartWidget/> </a>
+                    <li><NavLink to="/">Home </NavLink></li>
+                    <li><NavLink to="categoria/Ficcion">Ciencia Ficcion </NavLink></li> 
+                    <li><NavLink to="categoria/Suspenso">Suspenso </NavLink></li>
+                    <li><NavLink to="categoria/Terror">Terror </NavLink></li>
+                    <li><NavLink to="categoria/Romanticas">Novela Romanticas</NavLink></li>
+                    <li><NavLink to="categoria/Fantasia">Fantasia </NavLink></li> 
+                    <li><NavLink to="categoria/Politica">Politica </NavLink></li> 
+                    <NavLink to="/cart"><CartWidget/> </NavLink>
                 </ul>
                                   
             </nav>
