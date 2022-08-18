@@ -1,8 +1,22 @@
-import ItemDetailContainer from "./ItemDetailContainer"
+import { useState } from "react"
 import {Link} from "react-router-dom"
+import ItemDetailContainer from "./ItemDetailContainer"
+import ItemCount from "./ItemCount"
+import Cart from "./Cart"
 
 const ItemDetail = ({item}) =>{
-    console.log(item)
+
+    const [estadoCantidad, setEstadoCantidad] = useState(0)
+    const producto = {item}
+
+    const onAdd = (estadoContador) =>{
+        
+        const cantidad = estadoContador
+        setEstadoCantidad(cantidad)
+    } 
+    console.log({producto})
+    console.log(estadoCantidad)
+    
     return (
         <>
          {/* <div className="detail-card">
@@ -24,7 +38,8 @@ const ItemDetail = ({item}) =>{
             <img className="detail-tumb" src={item.pictureUrl} alt="" />
             <h3 className="detail-description">{item.description} "{item.category}"</h3>
             <p className="detail-price">${item.price}</p>          
-            <Link className="detail-bottom-details" to={ItemDetailContainer(item)}>Comprar</Link>           
+            <ItemCount onAdd = {onAdd}/>          
+            <Link className="detail-bottom-details" to={"/cart"}>Comprar</Link>
         </div>
         </>
     )
