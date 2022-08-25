@@ -1,15 +1,18 @@
 import { BrowserRouter } from "react-router-dom"
-import Header from "./components/Header";
+import Header from "./components/Header"
 import Main from "./components/Main"
-
+import CustomProvider from "./components/CustomProvider"
 
 function App(){
+
 
     return (
     <>
         <BrowserRouter>
-            <Header />
-            <Main />
+            <CustomProvider>                
+                <Header />
+                <Main />
+            </CustomProvider>
         </BrowserRouter>
    
     </>

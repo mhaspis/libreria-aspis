@@ -236,3 +236,22 @@ li a:hover {
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
 
 }
+
+.iconCart {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+    
+}
+
+.cantCart{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-decoration: none;
+}
+
+.imgCarrito{
+    width: 50px;
+}

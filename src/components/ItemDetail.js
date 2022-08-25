@@ -1,38 +1,27 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import {Link} from "react-router-dom"
 import ItemDetailContainer from "./ItemDetailContainer"
 import ItemCount from "./ItemCount"
 import Cart from "./Cart"
+import { contexto } from "./CustomProvider"
 
 const ItemDetail = ({item}) =>{
 
-    const [estadoCantidad, setEstadoCantidad] = useState(0)
+    
     const producto = {item}
+
+    const {agregarProducto} = useContext(contexto)
+    
 
     const onAdd = (estadoContador) =>{
         
-        const cantidad = estadoContador
-        setEstadoCantidad(cantidad)
+        item.cantidad = estadoContador
+
+        agregarProducto(item)
     } 
-    console.log({producto})
-    console.log(estadoCantidad)
     
     return (
-        <>
-         {/* <div className="detail-card">
-            
-            <div className="detail-tumb">
-                <img src={item.pictureUrl} alt="" />
-            </div>
-            <div className="detail-title">{item.title}</div>
-            <div className="details">
-                <div className="detail-description">{item.description} "{item.category}"</div>
-                <div className="detail-price">${item.price}</div>
-                <div className="detail-bottom-details">
-                    <Link to={ItemDetailContainer(item)}>Comprar</Link>                   
-                </div>  
-            </div>
-	    </div>  */}
+        <>        
         <div className="detail-card">
             <h2>{item.title}</h2>
             <img className="detail-tumb" src={item.pictureUrl} alt="" />
