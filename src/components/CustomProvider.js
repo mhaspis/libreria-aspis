@@ -12,9 +12,9 @@ const CustomProvider = (props) =>{
 
     const agregarProducto = (producto) =>{
         const carritoNew = carrito.filter((item) => item.id === producto.id)
-        console.log(carritoNew)
-        
-        if(carritoNew.length>0){
+
+        if(carritoNew.length>0){           
+
             setCantidad(cantidad + producto.cantidad)            
             
         }else{
@@ -22,27 +22,21 @@ const CustomProvider = (props) =>{
             setCarrito([...carrito, producto])
         } 
         
-
-        /* {carrito.find(producto.id) 
-            ? setCantidad(cantidad + producto.cantidad)
-            
-            : setCantidad(cantidad + producto.cantidad)
-            setCarrito([...carrito, producto])} */
-        
-
-        
-            setTotalCompra(totalCompra + (producto.cantidad*producto.price))        
+        setTotalCompra(totalCompra + (producto.cantidad*producto.price))        
                
     }
 
-    const eliminarProducto = (id) =>{
+    const eliminarProducto = (producto) =>{
 
-        const itemBorrado = carrito.filter((producto) => producto.id !== id)
+        const itemBorrado = carrito.filter((item) => item.id !== producto.id)
         setCarrito(itemBorrado)
+        setTotalCompra(totalCompra - (producto.cantidad*producto.price)) 
     }
 
     const vaciarCarrito = () =>{
         setCarrito([])
+        const total = 0;
+        setTotalCompra(total)
     }
 
     const valorDelContexto = {

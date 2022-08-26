@@ -17,54 +17,61 @@ const Cart = ({producto}, {cantidad}) =>{
         eliminarProducto(producto)
         
     }
-    
+    console.log(carrito.length)
     return (
         <>
-        <div>Mi Carrito</div>
-        <table>
-            <tr>
-                <td>
+        {carrito.length===0 ? 
+        <>
+        <h1>No hay items</h1>
+        <Link className="detail-bottom-details" to={"/"}>Volver al catalogo</Link>
+        </>
+        : 
+        <>
+        <div>Mi Carrito</div><table>
+                <tr>
+                    <td>
 
-                </td>
-                <td>
-                    Titulo
-                </td>
-                <td>
-                    Cantidad
-                </td>
-                <td>
-                    Precio
-                </td>
-            </tr>
-        {carrito.map((producto) =>(                            
-            <tr>
-                <td>
-                    <img src={producto.pictureUrl} alt="" className="imgCarrito"/>
-                </td>
-                <td>
-                    {producto.title}
-                </td>
-                <td>
-                    {producto.cantidad}
-                </td>
-                <td>
-                    ${producto.cantidad*producto.price}
-                </td>
-                <td>                   
-                   <button onClick={() => borrarProducto(producto.id)}><img src="/delete.png" alt=""/></button>                  
-                </td>
-            </tr> 
-        ))}
-        <tr>
-            <td></td>
-            <td></td>
-            <td>Total: </td>
-            <td>${totalCompra}</td>
-        </tr>
-        <tr>
-            <td><button onClick={vaciarCarrito}>Vaciar Carrito</button></td>
-        </tr>
-        </table>
+                    </td>
+                    <td>
+                        Titulo
+                    </td>
+                    <td>
+                        Cantidad
+                    </td>
+                    <td>
+                        Precio
+                    </td>
+                </tr>
+                {carrito.map((producto) => (
+                    <tr>
+                        <td>
+                            <img src={producto.pictureUrl} alt="" className="imgCarrito" />
+                        </td>
+                        <td>
+                            {producto.title}
+                        </td>
+                        <td>
+                            {producto.cantidad}
+                        </td>
+                        <td>
+                            ${producto.cantidad * producto.price}
+                        </td>
+                        <td>
+                            <button onClick={() => borrarProducto(producto)}><img src="/delete.png" alt="" /></button>
+                        </td>
+                    </tr>
+                ))}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Total: </td>
+                    <td>${totalCompra}</td>
+                </tr>
+                <tr>
+                    <td><button onClick={vaciarCarrito}>Vaciar Carrito</button></td>
+                </tr>
+            </table></>
+        }
         </>
         
     )
