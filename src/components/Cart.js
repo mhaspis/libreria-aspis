@@ -45,16 +45,16 @@ const Cart = ({producto}, {cantidad}) =>{
                 {carrito.map((producto) => (
                     <tr>
                         <td>
-                            <img src={producto.pictureUrl} alt="" className="imgCarrito" />
+                            <img src={producto.imagenUrl} alt="" className="imgCarrito" />
                         </td>
                         <td>
-                            {producto.title}
+                            {producto.titulo}
                         </td>
                         <td>
                             {producto.cantidad}
                         </td>
                         <td>
-                            ${producto.cantidad * producto.price}
+                            ${producto.cantidad * producto.precio}
                         </td>
                         <td>
                             <button onClick={() => borrarProducto(producto)}><img src="/delete.png" alt="" /></button>

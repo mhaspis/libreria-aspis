@@ -10,19 +10,24 @@ const CustomProvider = (props) =>{
     const [carrito, setCarrito] = useState([])
     
 
-    const agregarProducto = (producto) =>{
-        const carritoNew = carrito.filter((item) => item.id === producto.id)
+    const agregarProducto = (producto, idProducto) =>{
+        const carritoNew = carrito.filter((item) => item.id === idProducto)
+        console.log(carrito)
+        console.log(carritoNew)
+        console.log(idProducto)
 
         if(carritoNew.length>0){           
-
-            setCantidad(cantidad + producto.cantidad)            
+            setCantidad(cantidad + producto.cantidad)   
+            setCarrito([...carrito, producto])         
+            console.log("Carrito actualizado")
             
         }else{
             setCantidad(cantidad + producto.cantidad)
             setCarrito([...carrito, producto])
+            console.log("Carrito Nuevo guardado")
         } 
         
-        setTotalCompra(totalCompra + (producto.cantidad*producto.price))        
+        setTotalCompra(totalCompra + (producto.cantidad*producto.precio))        
                
     }
 
@@ -30,7 +35,7 @@ const CustomProvider = (props) =>{
 
         const itemBorrado = carrito.filter((item) => item.id !== producto.id)
         setCarrito(itemBorrado)
-        setTotalCompra(totalCompra - (producto.cantidad*producto.price)) 
+        setTotalCompra(totalCompra - (producto.cantidad*producto.precio)) 
     }
 
     const vaciarCarrito = () =>{

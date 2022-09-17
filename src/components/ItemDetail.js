@@ -5,10 +5,10 @@ import ItemCount from "./ItemCount"
 import Cart from "./Cart"
 import { contexto } from "./CustomProvider"
 
-const ItemDetail = ({item}) =>{
+const ItemDetail = ({item},{id}) =>{
 
-    
-    const producto = {item}
+    console.log({id})
+    console.log({item})
 
     const {agregarProducto} = useContext(contexto)
     
@@ -17,16 +17,16 @@ const ItemDetail = ({item}) =>{
         
         item.cantidad = estadoContador
 
-        agregarProducto(item)
+        agregarProducto(item, id)
     } 
     
     return (
         <>        
         <div className="detail-card">
-            <h2>{item.title}</h2>
-            <img className="detail-tumb" src={item.pictureUrl} alt="" />
-            <h3 className="detail-description">{item.description} "{item.category}"</h3>
-            <p className="detail-price">${item.price}</p>          
+            <h2>{item.titulo}</h2>
+            <img className="detail-tumb" src={item.imagenUrl} alt="" />
+            <h3 className="detail-description">{item.descripcion} "{item.categoria}"</h3>
+            <p className="detail-price">${item.precio}</p>          
             <ItemCount onAdd = {onAdd}/>          
             <Link className="detail-bottom-details" to={"/cart"}>Comprar</Link>
         </div>
