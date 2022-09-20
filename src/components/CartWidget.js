@@ -1,3 +1,5 @@
+import { Badge, IconButton } from "@mui/material"
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useContext } from "react"
 import { NavLink } from "react-router-dom"
 import { contexto } from "./CustomProvider"
@@ -5,16 +7,15 @@ import { contexto } from "./CustomProvider"
 
 const CartWidget = () => {
 
-    const {cantidad} = useContext(contexto)
+    const {cantidadItems} = useContext(contexto)
     
     return(
         <NavLink to="/cart">
-            <span className="iconCart">
-                <img src="/cart.png" className="cart" />  
-            </span>
-            <span className="cantCart">
-                {cantidad} 
-            </span>
+            <IconButton aria-label="cart">
+                <Badge badgeContent={cantidadItems()} color="primary">
+                    <ShoppingCartIcon />
+                </Badge>
+            </IconButton>
         </NavLink>
     )
 }

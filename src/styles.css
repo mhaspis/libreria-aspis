@@ -8,6 +8,12 @@ body{
     margin: auto;
 }
 
+.navBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 h2{
     font-size: 50px;
     font-weight: 500;
@@ -254,4 +260,5 @@ li a:hover {
 
 .imgCarrito{
     width: 50px;
+    
 }

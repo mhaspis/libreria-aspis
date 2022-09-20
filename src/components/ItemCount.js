@@ -1,25 +1,15 @@
-import {useState} from "react";
-
-function ItemCount({onAdd}){
-
-    const [estadoContador, setEstadoContador] = useState(0);
+function ItemCount({cantidad, setCantidad, stock, onAdd}){
 
     const aumentarUnidades = () => {
-        
-        setEstadoContador(estadoContador + 1)
-        
+        if (cantidad < stock) {
+            setCantidad(cantidad + 1)
+        }       
     }
 
     const restarUnidades = () => {
-
-        if(estadoContador>1){
-            setEstadoContador(estadoContador - 1)
+        if (cantidad > 1) {
+            setCantidad(cantidad - 1)
         }
-    }
-
-    const agregarCarrito = () =>{
-
-        onAdd(estadoContador)
     }
 
     return (
@@ -27,11 +17,13 @@ function ItemCount({onAdd}){
         <div>
         <div className="unidades">
             <button className="controlUnidades" onClick={restarUnidades}>-</button>
-            <p className="controlUnidades">{estadoContador}</p>
+            <div>
+                <p className="controlUnidades">{cantidad}</p>
+            </div>
             <button className="controlUnidades" onClick={aumentarUnidades}>+</button>
         </div>
         <div>
-            <button className="detail-bottom-details" onClick={agregarCarrito}> Agregar al carrito</button>
+            <button className="detail-bottom-details" onClick={() => {onAdd()}}> Agregar al carrito</button>
         </div>
         </div>
         

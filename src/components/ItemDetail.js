@@ -1,23 +1,16 @@
 import { useContext, useState } from "react"
 import {Link} from "react-router-dom"
-import ItemDetailContainer from "./ItemDetailContainer"
 import ItemCount from "./ItemCount"
-import Cart from "./Cart"
 import { contexto } from "./CustomProvider"
 
-const ItemDetail = ({item},{id}) =>{
+const ItemDetail = ({item}) =>{
 
-    console.log({id})
-    console.log({item})
+    const [cantidad, setCantidad] = useState(1)
+    const {isInCart, agregarProducto} = useContext(contexto)
 
-    const {agregarProducto} = useContext(contexto)
-    
-
-    const onAdd = (estadoContador) =>{
-        
-        item.cantidad = estadoContador
-
-        agregarProducto(item, id)
+    const onAdd = () =>{
+        isInCart(item.id)      
+        agregarProducto(item, cantidad)
     } 
     
     return (
@@ -27,8 +20,8 @@ const ItemDetail = ({item},{id}) =>{
             <img className="detail-tumb" src={item.imagenUrl} alt="" />
             <h3 className="detail-description">{item.descripcion} "{item.categoria}"</h3>
             <p className="detail-price">${item.precio}</p>          
-            <ItemCount onAdd = {onAdd}/>          
-            <Link className="detail-bottom-details" to={"/cart"}>Comprar</Link>
+            <ItemCount cantidad={cantidad} setCantidad={setCantidad} stock={item.stock} onAdd = {onAdd}/>          
+            <Link className="detail-bottom-details" to={"/cart"}>Ir al carrito</Link>
         </div>
         </>
     )

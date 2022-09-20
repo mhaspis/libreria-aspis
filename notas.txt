@@ -1,5 +1,0 @@
-GIT: Software gestor de versiones
-
-PUSH: Push desde VS Code
-
-WEBPACK: Determina que la aplicacion por default carga dsde root/src/index.js

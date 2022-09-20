@@ -12,7 +12,7 @@ function NavBar(){
         <header>
             <h1 className="titulo"><Link className="titulo" to="/">Libreria Mhaspis</Link></h1>
             <nav>
-                <ul>
+                <ul className='navBar'>
                     <li><NavLink to="/">Home </NavLink></li>
                     <li><NavLink to="categoria/Ficcion">Ciencia Ficcion </NavLink></li> 
                     <li><NavLink to="categoria/Suspenso">Suspenso </NavLink></li>
@@ -25,9 +25,7 @@ function NavBar(){
                                   
             </nav>
         </header>
-    ) 
-     
-
+    )     
 }
 
 export default NavBar

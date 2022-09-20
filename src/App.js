@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from "react-router-dom"
 import Header from "./components/Header"
 import Main from "./components/Main"
@@ -6,7 +7,6 @@ import "./components/firebase"
 
 function App(){
 
-
     return (
     <>
         <BrowserRouter>
@@ -14,10 +14,8 @@ function App(){
                 <Header />
                 <Main />
             </CustomProvider>
-        </BrowserRouter>
-   
-    </>
-    
+        </BrowserRouter>   
+    </>   
     )
 }
 
